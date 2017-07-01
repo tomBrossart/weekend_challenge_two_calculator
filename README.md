@@ -3,8 +3,8 @@
 [X] select inputs and push values to calculatorArr
 [X] create click listener that sends math function to calculatorArr
 [X] create click listener on Enter button click --
-[ ] create POST request in both client and server, and create variables for the inputs and calculation on server.js
-[ ] create +, -, X, % caluclation functions in seperate module
+[X] create POST request in both client and server, and create variables for the inputs and calculation on server.js
+[X] create +, -, X, % caluclation functions in seperate module
 [ ] export and require those functions
 [ ] create if else series that selects the correct calculation function and passes in the input values
 [ ] respond with answer and insert answer into result input field
@@ -25,6 +25,7 @@ PRO module
 
 GOTCHAS
   * forgot #id selector
+  * careful on variable names and dot notation and bracket index selection with ajax requests
 
 
 QUESTIONS
