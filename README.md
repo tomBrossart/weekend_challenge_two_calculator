@@ -10,3 +10,22 @@
 [ ] respond with answer and insert answer into result input field
 [ ] create click listener for clear button that emptys input fields and resets calculatorArr
 [ ] refactor code to bring functions outside document ready
+
+
+PRO module
+[ ] figure out how to change input radios to be buttons
+    // $
+    // if($('button[class=calculation]'))
+    //if(more than one active button)
+      // {alert('Please only select one calculation')};
+      // $('button').removeClass('active') }
+
+
+
+
+GOTCHAS
+  * forgot #id selector
+
+
+QUESTIONS
+ (1)  for some reason I can't get calcSelection to push from inside selectCalculation but I can get it to push from inside enterValues
