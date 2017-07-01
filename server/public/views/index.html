@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Weekend Challenge Two: Calculator</title>
+    <script src="vendors/jquery.js" charset="utf-8"></script>
+    <script src="scripts/client.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="views/styles.css">
+  </head>
+  <body>
+    <div class="base-mode">
+      <h1>Calculator</h1>
+      <input type="number" id="input-one" value="" placeholder="Enter a number">
+      <input type="number" id="input-two" value="" placeholder="Enter a number">
+      <input type="radio" class="calculation" name="calc" id="add">+</input>
+      <input type="radio" class="calculation" name="calc" id="subtract">-</input>
+      <input type="radio" class="calculation" name="calc" id="multiply">X</input>
+      <input type="radio" class="calculation" name="calc" id="divide">%</input>
+      <button type="button" id="enter">Enter</button>
+      <button type="button" id="clear">Clear</button>
+      <br>
+      <h4>Result:<span id='result'></span></h4>
+    </div>
+
+  </body>
+</html>

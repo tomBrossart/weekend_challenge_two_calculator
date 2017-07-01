@@ -1,0 +1,8 @@
+h1 {
+  color: blue;
+}
+
+.active{
+  color: red;
+  size: 100px;
+}
