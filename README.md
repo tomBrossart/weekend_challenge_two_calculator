@@ -1,8 +1,8 @@
 # weekend_challenge_two_calculator
 
 [X] select inputs and push values to calculatorArr
-[ ] create click listener that sends math function to calculatorArr
-[ ] create click listener on Enter button click --
+[X] create click listener that sends math function to calculatorArr
+[X] create click listener on Enter button click --
 [ ] create POST request in both client and server, and create variables for the inputs and calculation on server.js
 [ ] create +, -, X, % caluclation functions in seperate module
 [ ] export and require those functions
@@ -29,3 +29,4 @@ GOTCHAS
 
 QUESTIONS
  (1)  for some reason I can't get calcSelection to push from inside selectCalculation but I can get it to push from inside enterValues
+ (2) is it ok to name variables the same thing on client and server? i.e. calculatorArr
