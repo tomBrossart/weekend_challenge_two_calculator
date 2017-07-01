@@ -8,8 +8,11 @@
 [X] export and require those functions
 [X] create if else series that selects the correct calculation function and passes in the input values
 [X] respond with answer and insert answer into result input field
-[ ] create click listener for clear button that emptys input fields and resets calculatorArr
-[ ] refactor code to bring functions outside document ready
+[X] create click listener for clear button that emptys input fields and resets calculatorArr
+[X] refactor code to bring functions outside document ready
+  [X]review Amanda's code to see how they handled buttons in GRG  
+  [ ]replace radio inputs with buttons
+  [ ] add key-value pairs to calculatorArr object that is being POSTed
 
 
 PRO module
@@ -21,14 +24,18 @@ PRO module
       // $('button').removeClass('active') }
 
 
-
+LESSONS LEARNED
+  * Can make buttons act like radio inputs by simply adding a removeClass() to the click listener before making the selected button active
+  * don't need to reset calculatorObj because with dot notation I'll target the specific property and reset it each time
+  * selectCalculation is passing the correct selected calculation I think because $(this) from selectCalculation will be targeting the last button clicked when enter is hit
 
 GOTCHAS
   * forgot #id selector
   * careful on variable names and dot notation and bracket index selection with ajax requests
   * numbers were concatenating when adding
+  * When I switched from calculatorArr to calculatorObj I had to go back and reset all req/res points -- i.e. array.push to calcObj.x
 
 
 QUESTIONS
- (1)  for some reason I can't get calcSelection to push from inside selectCalculation but I can get it to push from inside enterValues
+
  (2) is it ok to name variables the same thing on client and server? i.e. calculatorArr
