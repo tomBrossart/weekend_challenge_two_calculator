@@ -11,23 +11,26 @@
 [X] create click listener for clear button that emptys input fields and resets calculatorArr
 [X] refactor code to bring functions outside document ready
   [X]review Amanda's code to see how they handled buttons in GRG  
-  [ ]replace radio inputs with buttons
-  [ ] add key-value pairs to calculatorArr object that is being POSTed
+  [X]replace radio inputs with buttons
+  [X] add key-value pairs to calculatorArr object that is being POSTed
 
 
 PRO module
-[ ] figure out how to change input radios to be buttons
-    // $
-    // if($('button[class=calculation]'))
-    //if(more than one active button)
-      // {alert('Please only select one calculation')};
-      // $('button').removeClass('active') }
+[X] edit html to add all calculator buttons,
+[X] add click listeners that display clicked nums in viewer bar
+[ ] figure out how to clear calcInput of numbers and show the selectedCalculation and add firstInput to calcObj 
+[ ] update selectedCalculation to also display in viewer bar
+[ ] add second input to calculatorObj after selectedCalculation
+[ ] add bootstrap or similar grid framework for layout
+
 
 
 LESSONS LEARNED
   * Can make buttons act like radio inputs by simply adding a removeClass() to the click listener before making the selected button active
   * don't need to reset calculatorObj because with dot notation I'll target the specific property and reset it each time
   * selectCalculation is passing the correct selected calculation I think because $(this) from selectCalculation will be targeting the last button clicked when enter is hit
+  HARD MODE
+    * how to append value to input field
 
 GOTCHAS
   * forgot #id selector
