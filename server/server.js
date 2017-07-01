@@ -18,8 +18,9 @@ app.post("/calcArray", function(req, res) {
   calcResult = [];
   inputsArray = req.body;
   // store data from post request in server side variables
-  var inputOne = inputsArray.calculatorArr[0];
-  var inputTwo = inputsArray.calculatorArr[1];
+  // convert inputs from strings to numbers
+  var inputOne = Number(inputsArray.calculatorArr[0]);
+  var inputTwo = Number(inputsArray.calculatorArr[1]);
   var selectedCalculation = inputsArray.calculatorArr[2];
   // log it out to make sure variables are selecting correctly
   console.log("succesfully receiving data from client:", inputOne, inputTwo, selectedCalculation);
@@ -42,6 +43,7 @@ app.post("/calcArray", function(req, res) {
   }
   // respond to request with calculated result
   res.send({calcResponse: calcResult});
+  console.log(calcResult);
 });
 
 // catch all

@@ -35,8 +35,10 @@ function enterValues() {
       url: '/calcArray',
       data: {calculatorArr: calculatorArr},
       success: function(response) {
-        // display resulting calculation
-        $('#result').text(response.result);
+        // check what is coming back
+        console.log(response);
+        var answer = response.calcResponse[0];
+        $('#result').text(' ' + answer);
       }
     });
   });
