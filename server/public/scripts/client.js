@@ -12,6 +12,7 @@ $(document).ready(function() {
   selectCalculation();
   // push inputs and selectedCalculation to calculatorArr
   enterValues();
+  clear();
 
 
 
@@ -54,5 +55,15 @@ function selectCalculation() {
     // QUESTION (1)
     // calculatorArr.push(calcSelection);
     // calculatorArr.push(12345);
+  });
+}
+
+function clear() {
+  $('#clear').on('click', function() {
+    inputOne.val(' ');
+    inputTwo.val(' ');
+    calculatorArr = [];
+    $('.calculation').prop('checked', false);
+
   });
 }
