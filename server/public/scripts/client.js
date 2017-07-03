@@ -5,7 +5,6 @@ var calculatorObj = {
   type: 0,
 };
 var inputs;
-// var inputTwo;
 var calcSelection;
 
 $(document).ready(function() {
@@ -29,53 +28,46 @@ function numberInputs() {
 
 function equalsButton() {
   $('#enter').on('click', function() {
-    // store input one value before adding the selected calculation
-    // regExp selecting first input
+    // split apart the three values in the input field at the spaces
+    // and assign as properties to calculatorObj
     inputs = $('#calcInput').val().split(' ');
     // regExp selecting second input
     calculatorObj.x = inputs[0];
     calculatorObj.y = inputs[2];
+    clear();
+    // log to verify object looks correct
     console.log(calculatorObj);
+    // create POST request to send calculatorObj to server
+    $.ajax({
+      type: 'POST',
+      url: '/calcArray',
+      data: {calculatorObj: calculatorObj},
+      success: function(response) {
+        // check what is coming back
+        console.log(response);
+        var answer = response.calcResponse.answer;
+        $('#calcInput').val(' ' + answer);
+      }
+    });
   });
 }
-c
-    //
-    //
-    // // select inputs and push values to calculatorObj
-    // inputOne = $('#input-one').val();
-    // inputTwo = $('#input-two').val();
-    // calculatorObj.x = inputOne;
-    // calculatorObj.y = inputTwo;
-    // calculatorObj.type = calcSelection;
-    // // log to verify everything is adding correctly
-    // console.log(calculatorObj);
-    // // create POST request to send calculatorObj to server
-    // $.ajax({
-    //   type: 'POST',
-    //   url: '/calcArray',
-    //   data: {calculatorObj: calculatorObj},
-    //   success: function(response) {
-    //     // check what is coming back
-    //     console.log(response);
-    //     var answer = response.calcResponse.answer;
-    //     $('#result').text(' ' + answer);
-    //   }
-    // });
+
+
+
 
 
 //create click listener that sends selected calc to calculatorObj
 function selectCalculation() {
   $('.calculation').on('click', function() {
-    // create if else to check if input already has info entered, if so trigger
+    // create if else to check if input already has info entered or if calculation is already selected, if so trigger
     // alert asking user to start over...
     //make sure no other button is currently active
     $('button[name=calc]').removeClass('active');
     // on click button toggles class thus changing color
     $(this).addClass('active');
     // target the last button clicked and assign it to calcObj
-    calcSelection = ($(this).attr('id'));
-    calculatorObj.type = calcSelection;
-    inputAppend(' ' + calcSelection + ' ');
+    calculatorObj.type = ($(this).attr('id'));
+    inputAppend(' ' + calculatorObj.type + ' ');
   });
 }
 
