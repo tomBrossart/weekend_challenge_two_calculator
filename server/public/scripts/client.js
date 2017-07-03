@@ -4,8 +4,8 @@ var calculatorObj = {
   y: 0,
   type: 0,
 };
-var inputOne;
-var inputTwo;
+var inputs;
+// var inputTwo;
 var calcSelection;
 
 $(document).ready(function() {
@@ -14,18 +14,31 @@ $(document).ready(function() {
   // call sC function to $select the calculation
   selectCalculation();
   // push inputs and selectedCalculation to calculatorObj
-  enterValues();
+  numberInputs();
+  equalsButton();
   clear();
 });
 
 // create function with click listener to send inputs to calculatorObj
-function enterValues() {
+function numberInputs() {
   $('.numbers').on('click', function() {
     var $button = $(this).attr('id');
     inputAppend($button);
   });
 }
 
+function equalsButton() {
+  $('#enter').on('click', function() {
+    // store input one value before adding the selected calculation
+    // regExp selecting first input
+    inputs = $('#calcInput').val().split(' ');
+    // regExp selecting second input
+    calculatorObj.x = inputs[0];
+    calculatorObj.y = inputs[2];
+    console.log(calculatorObj);
+  });
+}
+c
     //
     //
     // // select inputs and push values to calculatorObj
@@ -53,6 +66,8 @@ function enterValues() {
 //create click listener that sends selected calc to calculatorObj
 function selectCalculation() {
   $('.calculation').on('click', function() {
+    // create if else to check if input already has info entered, if so trigger
+    // alert asking user to start over...
     //make sure no other button is currently active
     $('button[name=calc]').removeClass('active');
     // on click button toggles class thus changing color
@@ -60,6 +75,7 @@ function selectCalculation() {
     // target the last button clicked and assign it to calcObj
     calcSelection = ($(this).attr('id'));
     calculatorObj.type = calcSelection;
+    inputAppend(' ' + calcSelection + ' ');
   });
 }
 

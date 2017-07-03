@@ -24,19 +24,19 @@ app.post("/calcArray", function(req, res) {
   // log it out to make sure variables are selecting correctly
   console.log("succesfully receiving data from client:", inputOne, inputTwo, selectedCalculation);
   // check selectedCalculation and pass inputs into function
-  if(selectedCalculation == 'add') {
+  if(selectedCalculation == '+') {
     var aResult = add(inputOne, inputTwo);
     calcResult.answer = aResult;
   }
-  else if(selectedCalculation == 'subtract') {
+  else if(selectedCalculation == '-') {
     var sResult = subtract(inputOne, inputTwo);
     calcResult.answer = sResult;
   }
-  else if(selectedCalculation == 'multiply') {
+  else if(selectedCalculation == 'X') {
     var mResult = multiply(inputOne, inputTwo);
     calcResult.answer = mResult;
   }
-  else if(selectedCalculation == 'divide') {
+  else if(selectedCalculation == '%') {
     var dResult = divide(inputOne, inputTwo);
     calcResult.answer = dResult;
   }
