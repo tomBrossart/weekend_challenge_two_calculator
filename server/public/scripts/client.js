@@ -11,6 +11,8 @@ var selectionArray = [];
 $(document).ready(function() {
   // verify everything setup
   console.log('jquery and js sourced');
+  //hide the computing div -- to be shown during delay
+  // $('#computing').hide();
   selectCalculation();
   numberInputs();
   equalsButton();
@@ -45,8 +47,12 @@ function equalsButton() {
       success: function(response) {
         // check what is coming back
         // console.log(response);
+        computing();
         var answer = response.calcResponse.answer;
-        $('#calcInput').val(answer);
+        setTimeout(function() {
+          $('#calcInput').val(answer);
+          computing();
+          }, 3000);
       }
     });
     console.log(selectionArray);
@@ -54,6 +60,11 @@ function equalsButton() {
   });
 }
 
+// switch interface with computing div
+function computing() {
+  $('.container').toggleClass('delay');
+  $('#compOverlay').toggleClass('computing');
+}
 
 //create click listener that sends selected calc to calculatorObj
 function selectCalculation() {

@@ -24,11 +24,12 @@ HARD mode
 
 PRO mode
 [ ] refactor code to include route?
-[ ] Create a delay from when the client receives the response from the Server, and when the calculation is actually displayed on the DOM.
-The delay should be 3 seconds.
-[ ] During that delay, show information that says 'computing' until the 3 second delay has finished,
-[ ] then remove the 'computing' message while showing the calculation.
 [ ] add bootstrap or similar grid framework for layout to polish appearance
+[X] Create a delay from when the client receives the response from the Server, and when the calculation is actually displayed on the DOM.
+The delay should be 3 seconds.
+[X] During that delay, show information that says 'computing' until the 3 second delay has finished,
+[X] then remove the 'computing' message while showing the calculation.
+
 
 
 
