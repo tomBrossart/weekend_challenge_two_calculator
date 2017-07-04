@@ -11,8 +11,6 @@ var selectionArray = [];
 $(document).ready(function() {
   // verify everything setup
   console.log('jquery and js sourced');
-  //hide the computing div -- to be shown during delay
-  // $('#computing').hide();
   selectCalculation();
   numberInputs();
   equalsButton();
@@ -47,20 +45,23 @@ function equalsButton() {
       success: function(response) {
         // check what is coming back
         // console.log(response);
+        // show computing on screen
         computing();
         var answer = response.calcResponse.answer;
+        // after 3 seconds take away computing message and show answer
         setTimeout(function() {
           $('#calcInput').val(answer);
           computing();
-          }, 3000);
+        }, 3000);
       }
     });
     console.log(selectionArray);
+    // reset selectionArray so it doesn't trigger alert in selectedCalculation
     selectionArray = [];
   });
 }
 
-// switch interface with computing div
+// dim the calculator and overlay computing message
 function computing() {
   $('.container').toggleClass('delay');
   $('#compOverlay').toggleClass('computing');
@@ -78,8 +79,7 @@ function selectCalculation() {
     // target the last button clicked and assign it to calcObj
     calculatorObj.type = ($(this).attr('id'));
     inputAppend(' ' + calculatorObj.type + ' ');
-    // create if else to check if input already has info entered or if calculation is already selected, if so trigger
-    // alert asking user to start over...
+    // create if else to check if math operation is already selected, if so show alert
     if(selectionArray.length > 1) {
       alert("Please select only one mathematical operation");
       clear();
@@ -89,10 +89,10 @@ function selectCalculation() {
 
 // function to reset all inputs and text
 function clear() {
-    $('input').val('');
-    $('button[name=calc]').removeClass('active');
-    $('#result').text('');
-    selectionArray = [];
+  $('input').val('');
+  $('button[name=calc]').removeClass('active');
+  $('#result').text('');
+  selectionArray = [];
 }
 
 // click listener for clear button to call clear function
@@ -104,5 +104,5 @@ function clearButton() {
 
 // target the input field and append values into it
 function inputAppend(num){
-    $('#calcInput').val($('#calcInput').val() + num);
+  $('#calcInput').val($('#calcInput').val() + num);
 }
