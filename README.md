@@ -15,13 +15,20 @@
   [X] add key-value pairs to calculatorArr object that is being POSTed
 
 
-PRO module
+HARD mode
 [X] edit html to add all calculator buttons,
 [X] add click listeners that display clicked nums in viewer bar
-[ ] figure out how to clear calcInput of numbers and show the selectedCalculation and add firstInput to calcObj 
-[ ] update selectedCalculation to also display in viewer bar
-[ ] add second input to calculatorObj after selectedCalculation
-[ ] add bootstrap or similar grid framework for layout
+[X] figure out how to clear calcInput of numbers and show the selectedCalculation and add firstInput to calcObj
+[X] update selectedCalculation to also display in viewer bar
+[X] add second input to calculatorObj after selectedCalculation
+
+PRO mode
+[ ] refactor code to include route?
+[ ] Create a delay from when the client receives the response from the Server, and when the calculation is actually displayed on the DOM.
+The delay should be 3 seconds.
+[ ] During that delay, show information that says 'computing' until the 3 second delay has finished,
+[ ] then remove the 'computing' message while showing the calculation.
+[ ] add bootstrap or similar grid framework for layout to polish appearance
 
 
 
@@ -31,6 +38,7 @@ LESSONS LEARNED
   * selectCalculation is passing the correct selected calculation I think because $(this) from selectCalculation will be targeting the last button clicked when enter is hit
   HARD MODE
     * how to append value to input field
+    * inside click listener call function just by name not with ()
 
 GOTCHAS
   * forgot #id selector
@@ -42,3 +50,4 @@ GOTCHAS
 QUESTIONS
 
  (2) is it ok to name variables the same thing on client and server? i.e. calculatorArr
+ () what is this bundle.js error in browser console?          related to this? https://www.npmjs.com/package/bundle-js

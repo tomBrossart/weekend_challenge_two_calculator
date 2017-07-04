@@ -6,16 +6,16 @@ var calculatorObj = {
 };
 var inputs;
 var calcSelection;
+var selectionArray = [];
 
 $(document).ready(function() {
   // verify everything setup
   console.log('jquery and js sourced');
-  // call sC function to $select the calculation
   selectCalculation();
-  // push inputs and selectedCalculation to calculatorObj
   numberInputs();
   equalsButton();
   clear();
+  clearButton();
 });
 
 // create function with click listener to send inputs to calculatorObj
@@ -36,7 +36,7 @@ function equalsButton() {
     calculatorObj.y = inputs[2];
     clear();
     // log to verify object looks correct
-    console.log(calculatorObj);
+    // console.log(calculatorObj);
     // create POST request to send calculatorObj to server
     $.ajax({
       type: 'POST',
@@ -44,23 +44,22 @@ function equalsButton() {
       data: {calculatorObj: calculatorObj},
       success: function(response) {
         // check what is coming back
-        console.log(response);
+        // console.log(response);
         var answer = response.calcResponse.answer;
-        $('#calcInput').val(' ' + answer);
+        $('#calcInput').val(answer);
       }
     });
+    console.log(selectionArray);
+    selectionArray = [];
   });
 }
-
-
-
 
 
 //create click listener that sends selected calc to calculatorObj
 function selectCalculation() {
   $('.calculation').on('click', function() {
-    // create if else to check if input already has info entered or if calculation is already selected, if so trigger
-    // alert asking user to start over...
+    // add selection to selectionArray so later we can verify only one math operation is selected
+    selectionArray.push($(this).attr('id'));
     //make sure no other button is currently active
     $('button[name=calc]').removeClass('active');
     // on click button toggles class thus changing color
@@ -68,18 +67,31 @@ function selectCalculation() {
     // target the last button clicked and assign it to calcObj
     calculatorObj.type = ($(this).attr('id'));
     inputAppend(' ' + calculatorObj.type + ' ');
+    // create if else to check if input already has info entered or if calculation is already selected, if so trigger
+    // alert asking user to start over...
+    if(selectionArray.length > 1) {
+      alert("Please select only one mathematical operation");
+      clear();
+    }
   });
 }
 
-// reset all inputs and text
+// function to reset all inputs and text
 function clear() {
-  $('#clear').on('click', function() {
     $('input').val('');
     $('button[name=calc]').removeClass('active');
     $('#result').text('');
-  });
+    selectionArray = [];
 }
 
+// click listener for clear button to call clear function
+// seperating this from clear() because sometimes we want to call clear() seperate
+// from the click listener
+function clearButton() {
+  $('#clear').on('click', clear);
+}
+
+// target the input field and append values into it
 function inputAppend(num){
     $('#calcInput').val($('#calcInput').val() + num);
 }

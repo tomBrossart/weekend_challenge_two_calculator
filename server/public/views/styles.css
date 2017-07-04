@@ -1,3 +1,10 @@
+.container {
+  width: 70%;
+  margin: 10px auto;
+  background-color: gray;
+  align-items: center;
+}
+
 h1 {
   color: blue;
 }
@@ -5,4 +12,25 @@ h1 {
 .active{
   color: red;
   size: 100px;
+}
+
+button {
+  font-size: 16px;
+  color: blue;
+  width: 30px;
+  height: 30px;
+}
+
+input {
+  width: 200px;
+  padding: 5px;
+  margin: 5px;
+}
+
+#clear {
+  width: 90px;
+}
+
+#enter {
+  width: 60px;
 }
